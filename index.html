@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoachMate</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="login_panel">
+        <div class="auth">
+
+            <div class="title">
+                <p>CoachMate</p>
+            </div>
+
+            <div class="switcher">
+                <button id="signUpButton" class="active" onclick="showForm('signUp')">Sign Up</button>
+                <button id="signInButton" onclick="showForm('signIn')">Sign In</button>
+            </div>
+
+            <div class="sign_in_form">
+                <div class="sign_in_heading">
+                    <p>Sign In</p>
+                </div>
+                <div id="ambiance">
+                </div>
+                <div class="form">
+                    <div class="email">
+                        <input type="text" name="email" id="email" placeholder="Email">
+                    </div>
+                    <div class="password">
+                        <input type="password" name="password" id="password" placeholder="Password">
+                        <div class="forgot">
+                            <a href="#">Forgot a password ?</a>
+                        </div>
+                    </div>
+                    <div class="login_btn_block">
+                        <button type="button" id="login_btn" onclick="signIn()">Login</button>
+                    </div>
+                    <div class="continue">
+                        <div class="continue_text">
+                            <div class="text text_or">
+                                <p>or</p>
+                            </div>
+                            <div class="text text_continue">
+                                <p>continue with</p>
+                            </div>
+                        </div>
+                        <div class="sign_in_buttons">
+                            <div class="sign_in_btn google">
+                                <a href="/auth/google_sign_in">
+                                    <img src="images/google_icon.png" alt="" width="30">
+                                </a>
+                            </div>
+                            <div class="sign_in_btn apple">
+                                <img src="images/apple_icon.png" alt="" width="30">
+                            </div>
+                            <div class="sign_in_btn microsoft">
+                                <img src="images/microsoft_icon.png" alt="" width="30">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sign_up_form">
+                <div class="sign_up_heading">
+                    <p>Sign Up</p>
+                </div>
+                <div id="ambiance">
+                </div>
+                <div class="form">
+                    <div class="email">
+                        <input type="text" autocomplete="on" name="email" id="email" placeholder="Email">
+                    </div>
+                    <div class="password">
+                        <input type="password" autocomplete="off" name="password" id="password" placeholder="Password">
+                    </div>
+                    <div class="rep_password">
+                        <input type="password" autocomplete="off" name="rep_password" id="rep_password"
+                            placeholder="Repeat password">
+                    </div>
+                    <div class="sign_up_btn_block">
+                        <button type="button" id="sign_up_btn" onclick="signUp()">Sign Up</button>
+                    </div>
+                    <div class="continue">
+                        <div class="continue_text">
+                            <div class="text">
+                                <p>or</p>
+                            </div>
+                            <div class="text">
+                                <p>continue with</p>
+                            </div>
+                        </div>
+                        <div class="sign_up_buttons">
+                            <div class="sign_up_btn google">
+                                <a href="/auth/google_sign_up">
+                                    <img src="images/google_icon.png" alt="" width="30">
+                                </a>
+                            </div>
+                            <div class="sign_up_btn apple">
+                                <img src="images/apple_icon.png" alt="" width="30">
+                            </div>
+                            <div class="sign_up_btn microsoft">
+                                <img src="images/microsoft_icon.png" alt="" width="30">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="welcome_screen">
+            <div class="welcome_img">
+                <img src="images/ai.png" alt="" width="350px">
+            </div>
+            <div class="welcome_text">
+                <p>Welcome back, please login to your account</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    
+        function signUp() {
+            window.location.href = './main.html'
+        }
+
+        function showForm(formType) {
+            const signUpButton = document.getElementById('signUpButton');
+            const signInButton = document.getElementById('signInButton');
+            const signUpForm = document.querySelector('.sign_up_form');
+            const signInForm = document.querySelector('.sign_in_form');
+            signUpButton.classList.toggle('active', formType == 'signUp');
+            signInButton.classList.toggle('active', formType != 'signUp');
+            signUpForm.style.display = formType == 'signUp' ? 'flex' : 'none';
+            signInForm.style.display = formType != 'signUp' ? 'flex' : 'none';
+        }
+    </script>
+
+</body>
+
+</html>
